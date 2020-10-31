@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class GalleryItem extends Component {
   handleLikes = (event) => {
-    console.log('button clicked');
+    this.props.callBack(this.props.item.id);
   };
 
   render() {

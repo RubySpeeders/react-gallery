@@ -34,15 +34,14 @@ class App extends Component {
       });
   }
 
-  //POST route to change the amount of likes of a photo in gallery
-  changeLikes(likes) {
+  //PUT route to change the amount of likes of a photo in gallery
+  changeLikes = (id) => {
     axios({
       method: 'PUT',
-      url: '/gallery/like/:id',
-      data: likes,
+      url: `/gallery/like/${id}`,
     })
       .then((response) => {
-        //GET the updated info
+        //GET the updated like info
         this.getPhotos();
       })
       .catch((err) => {
@@ -51,7 +50,7 @@ class App extends Component {
           errMsg: 'Could not update your likes',
         });
       });
-  }
+  };
 
   render() {
     return (
@@ -61,7 +60,10 @@ class App extends Component {
         </header>
         <br />
         <p>My Gallery</p>
-        <GalleryList list={this.state.galleryList} />
+        <GalleryList
+          likeCallBack={this.changeLikes}
+          list={this.state.galleryList}
+        />
       </div>
     );
   }
