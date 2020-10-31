@@ -8,6 +8,8 @@ This project is an application that shows pictures in my gallery where users can
 
 ## Screenshot
 
+<!--screenshot goes here -->
+
 ## Prerequisites
 
 ## Installation
@@ -25,11 +27,11 @@ This project is an application that shows pictures in my gallery where users can
 
 ## Built With
 
-HTML
-CSS
-Javascript
-node.js
-React.js
-axios
+-HTML
+-CSS
+-Javascript
+-node
+-React
+-axios
 
-## Acknowledgment
+## Acknowledgements
