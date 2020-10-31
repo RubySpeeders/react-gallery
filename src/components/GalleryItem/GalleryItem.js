@@ -5,11 +5,9 @@ class GalleryItem extends Component {
     //variable for property coming over from GalleryList
     const prop = this.props.item;
     return (
-      <div>
-        <dt>
-          <img src={prop.path} alt={prop.description} />
-        </dt>
-        <dt>{prop.description}</dt>
+      <div key={item.id}>
+        <img src={prop.path} alt={prop.description} />
+        <p>{prop.description}</p>
         <button>LIKE</button>
         <span> {prop.likes} likes</span>
       </div>

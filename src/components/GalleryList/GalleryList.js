@@ -4,11 +4,7 @@ import GalleryItem from '../GalleryItem/GalleryItem';
 class GalleryList extends Component {
   render() {
     const listItems = this.props.list.map((item) => {
-      return (
-        <ul key={item.id}>
-          <GalleryItem item={item} />
-        </ul>
-      );
+      return <GalleryItem item={item} />;
     });
     return <div>{listItems}</div>;
   }
