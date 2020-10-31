@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 
 class GalleryItem extends Component {
+  handleLikes = (event) => {
+    console.log('button clicked');
+  };
+
   render() {
     //variable for property coming over from GalleryList
     const prop = this.props.item;
     return (
-      <div key={item.id}>
+      <div key={prop.id}>
         <img src={prop.path} alt={prop.description} />
         <p>{prop.description}</p>
-        <button>LIKE</button>
+        <button onClick={this.handleLikes}>LIKE</button>
         <span> {prop.likes} likes</span>
       </div>
     );
