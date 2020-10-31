@@ -9,16 +9,19 @@ class App extends Component {
     errMsg: null,
   };
 
+  //'on ready' function that loads the gallery on page load
   componentDidMount() {
     this.getPhotos();
   }
 
+  //get Route to get all photos from the server
   getPhotos() {
     axios({
       method: 'GET',
       url: '/gallery',
     })
       .then((response) => {
+        //populate state with the data from the server
         this.setState({
           galleryList: response.data,
         });
@@ -40,7 +43,6 @@ class App extends Component {
         <br />
         <p>My Gallery</p>
         <GalleryList list={this.state.galleryList} />
-        {/* <img src="images/goat_small.jpg" alt="small goat" /> */}
       </div>
     );
   }
