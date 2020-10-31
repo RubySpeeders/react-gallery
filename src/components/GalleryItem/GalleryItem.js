@@ -25,7 +25,7 @@ class GalleryItem extends Component {
     //variable for property coming over from GalleryList
     const prop = this.props.item;
     let galleryItem = <img src={prop.path} alt={prop.description} />;
-    if (this.state.isClicked === true) {
+    if (this.state.isClicked) {
       galleryItem = <p>{prop.description}</p>;
     }
     return (
@@ -33,8 +33,6 @@ class GalleryItem extends Component {
         <div className="whatever">
           <div onClick={this.togglePic}>{galleryItem}</div>
         </div>
-        {/* <img src={prop.path} alt={prop.description} onClick={this.togglePic} />
-        <p>{prop.description}</p> */}
         <button onClick={this.handleLikes}>LIKE</button>
         <span> {prop.likes} likes</span>
       </div>
