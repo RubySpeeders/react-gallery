@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
 import GalleryList from '../GalleryList/GalleryList';
+import 'bootstrap/dist/css/bootstrap.css';
 
 class App extends Component {
   state = {
@@ -60,8 +61,11 @@ class App extends Component {
         </header>
         <br />
         <p>My Gallery</p>
+        {/* Component of Gallery list */}
         <GalleryList
+          // send callback function through props to GalleryList
           likeCallBack={this.changeLikes}
+          // send galleryList array through props to GalleryList
           list={this.state.galleryList}
         />
       </div>
