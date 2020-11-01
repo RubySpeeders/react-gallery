@@ -8,7 +8,7 @@ This project is an application that shows pictures in my gallery where users can
 
 ## Screenshot
 
-<!--screenshot goes here -->
+<img width="1371" alt="Screen Shot 2020-11-01 at 4 54 44 PM" src="https://user-images.githubusercontent.com/69406113/97817885-baba2200-1c64-11eb-8a6d-eee9367442b6.png">
 
 ## Prerequisites
 
