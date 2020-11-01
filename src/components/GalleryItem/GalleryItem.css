@@ -1,0 +1,16 @@
+img {
+  height: 200px;
+  /* width: auto; */
+}
+
+.container {
+  display: inline-block;
+  margin: 20px;
+}
+
+.description {
+  height: 100px;
+  width: 256px;
+  border: solid black 3px;
+  padding: 20px;
+}

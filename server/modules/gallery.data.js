@@ -1,8 +1,8 @@
 const galleryItems = [
   {
     id: 1,
-    path: 'images/goat_small.jpg',
-    description: 'Photo of a goat taken at Glacier National Park.',
+    path: 'images/cherry_blossoms.jpg',
+    description: 'Cherry blossoms in the city.',
     likes: 0,
   },
   {
@@ -27,6 +27,12 @@ const galleryItems = [
     id: 5,
     path: 'images/lotus_flower.jpg',
     description: 'Lotus flower, like MY Loudis flower!',
+    likes: 0,
+  },
+  {
+    id: 6,
+    path: 'images/miami_beach.jpg',
+    description: 'Storm rolling into South Beach',
     likes: 0,
   },
 ];

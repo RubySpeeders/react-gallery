@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './GalleryItem.css';
 
 class GalleryItem extends Component {
   state = {
@@ -26,11 +27,11 @@ class GalleryItem extends Component {
     const prop = this.props.item;
     let galleryItem = <img src={prop.path} alt={prop.description} />;
     if (this.state.isClicked) {
-      galleryItem = <p>{prop.description}</p>;
+      galleryItem = <p className="description">{prop.description}</p>;
     }
     return (
-      <div key={prop.id}>
-        <div className="whatever">
+      <div className="container" key={prop.id}>
+        <div>
           <div onClick={this.togglePic}>{galleryItem}</div>
         </div>
         <button onClick={this.handleLikes}>LIKE</button>
