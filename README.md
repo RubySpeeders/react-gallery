@@ -35,3 +35,5 @@ This project is an application that shows pictures in my gallery where users can
 -axios
 
 ## Acknowledgements
+
+Thank you to Brad Loudis, Lara Komosa, and Joey Heinz who assisted with troubleshooting!
