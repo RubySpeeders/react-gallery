@@ -59,7 +59,7 @@ class App extends Component {
           <h1 className="App-title">Gallery of my life</h1>
         </header>
         <br />
-        <p>My Gallery</p>
+        <p className="App-para">MY GALLERY</p>
         <GalleryList
           likeCallBack={this.changeLikes}
           list={this.state.galleryList}

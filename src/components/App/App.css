@@ -25,3 +25,11 @@
     transform: rotate(360deg);
   }
 }
+
+.App-para {
+  padding: 20px;
+  margin-top: 0px;
+  font-weight: 900;
+  font-size: larger;
+  background-color: cadetblue;
+}
