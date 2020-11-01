@@ -40,7 +40,9 @@ class GalleryItem extends Component {
         <div>
           <div onClick={this.togglePic}>{galleryItem}</div>
         </div>
-        <button onClick={this.handleLikes}>LIKE</button>
+        <button onClick={this.handleLikes} variant="outline-dark">
+          LIKE
+        </button>
         <span> {prop.likes} likes</span>
       </div>
     );
