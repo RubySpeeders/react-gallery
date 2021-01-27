@@ -18,7 +18,7 @@ class App extends Component {
   getPhotos() {
     axios({
       method: 'GET',
-      url: '/gallery',
+      url: '/api/gallery',
     })
       .then((response) => {
         //populate state with the data from the server
