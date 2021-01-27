@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './GalleryItem.css';
 
+//MATERIAL-UI imports
+import { Button } from '@material-ui/core';
+
 class GalleryItem extends Component {
   state = {
     isClicked: false,
@@ -34,7 +37,10 @@ class GalleryItem extends Component {
         <div>
           <div onClick={this.togglePic}>{galleryItem}</div>
         </div>
-        <button onClick={this.handleLikes}>LIKE</button>
+
+        <Button onClick={this.handleLikes} variant="contained">
+          LIKE
+        </Button>
         <span> {prop.likes} likes</span>
       </div>
     );
