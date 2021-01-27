@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import mapStoreToProps from '../../redux/sagas/mapStoreToProps';
 import axios from 'axios';
 
 //CUSTOM FILE IMPORTS
@@ -19,14 +21,13 @@ class App extends Component {
 
   //get Route to get all photos from the server
   getPhotos() {
-    axios({
-      method: 'GET',
-      url: '/gallery',
-    })
+    axios
+      .get('/api/gallery')
       .then((response) => {
-        //populate state with the data from the server
-        this.setState({
-          galleryList: response.data,
+        //GET items in the GALLERY ITEMS reducer
+        this.props.dispatch({
+          type: 'GET_GALLERY_ITEMS',
+          payload: response.data,
         });
       })
       .catch((err) => {
@@ -70,4 +71,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(mapStoreToProps)(App);
