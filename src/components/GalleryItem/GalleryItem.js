@@ -15,6 +15,11 @@ class GalleryItem extends Component {
     this.props.likeCallBack(this.props.item.id);
   };
 
+  handleDelete = (e) => {
+    // this.props.dispatch({type: 'DELETE_ITEM', payload: this.props.galleryItem.id})
+    console.log(this.props.galleryItem.id);
+  };
+
   togglePic = (event) => {
     if (this.state.isClicked === false) {
       this.setState({
@@ -51,6 +56,9 @@ class GalleryItem extends Component {
           LIKE
         </Button>
         <span> {this.props.galleryItem.likes} likes</span>
+        <Button variant="contained" onClick={this.handleDelete}>
+          Delete
+        </Button>
       </div>
     );
   }
