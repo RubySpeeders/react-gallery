@@ -4,7 +4,7 @@ import mapStoreToProps from '../../redux/sagas/mapStoreToProps';
 import './GalleryItem.css';
 
 //MATERIAL-UI imports
-import { Button, Typography } from '@material-ui/core';
+import { Button, Typography, Grid } from '@material-ui/core';
 
 class GalleryItem extends Component {
   state = {
@@ -13,6 +13,13 @@ class GalleryItem extends Component {
 
   handleLikes = (event) => {
     this.props.likeCallBack(this.props.item.id);
+  };
+
+  handleDelete = (e) => {
+    this.props.dispatch({
+      type: 'DELETE_IMAGE',
+      payload: this.props.galleryItem.id,
+    });
   };
 
   togglePic = (event) => {
@@ -42,7 +49,7 @@ class GalleryItem extends Component {
       );
     }
     return (
-      <div className="container">
+      <Grid item xs={12} md={6} lg={4} xl={3}>
         <div>
           <div onClick={this.togglePic}>{galleryItem}</div>
         </div>
@@ -51,7 +58,10 @@ class GalleryItem extends Component {
           LIKE
         </Button>
         <span> {this.props.galleryItem.likes} likes</span>
-      </div>
+        <Button variant="contained" onClick={this.handleDelete}>
+          Delete
+        </Button>
+      </Grid>
     );
   }
 }
