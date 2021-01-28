@@ -7,6 +7,7 @@ import axios from 'axios';
 import './App.css';
 import GalleryList from '../GalleryList/GalleryList';
 import Header from '../Header/Header';
+import AddGalleryItem from '../AddGalleryItem/AddGalleryItem';
 
 class App extends Component {
   state = {
@@ -63,6 +64,7 @@ class App extends Component {
           likeCallBack={this.changeLikes}
           list={this.state.galleryList}
         />
+        <AddGalleryItem />
       </div>
     );
   }

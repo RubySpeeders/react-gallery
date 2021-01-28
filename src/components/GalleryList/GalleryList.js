@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/sagas/mapStoreToProps';
 
+//CUSTOM FILE IMPORTS
 import GalleryItem from '../GalleryItem/GalleryItem';
+
+//MATERIAL-UI IMPORTS
+import { Container, Grid } from '@material-ui/core';
 
 class GalleryList extends Component {
   render() {
@@ -11,7 +15,15 @@ class GalleryList extends Component {
       return <GalleryItem key={index} galleryItem={item} />;
     });
 
-    return <div>{galleryItem}</div>;
+    return (
+      <div>
+        <Container>
+          <Grid container spacing={3}>
+            {galleryItem}
+          </Grid>
+        </Container>
+      </div>
+    );
   }
 }
 

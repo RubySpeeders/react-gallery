@@ -12,7 +12,7 @@ const config = {
 const pool = new Pool(config);
 
 pool.on('connect', (client) => {
-  console.log('pg connected');
+  // console.log('pg connected');
 });
 
 pool.on('error', (err, client) => {

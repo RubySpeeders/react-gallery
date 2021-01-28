@@ -4,7 +4,7 @@ import mapStoreToProps from '../../redux/sagas/mapStoreToProps';
 import './GalleryItem.css';
 
 //MATERIAL-UI imports
-import { Button, Typography } from '@material-ui/core';
+import { Button, Typography, Grid } from '@material-ui/core';
 
 class GalleryItem extends Component {
   state = {
@@ -47,7 +47,7 @@ class GalleryItem extends Component {
       );
     }
     return (
-      <div className="container">
+      <Grid item xs={12} md={6} lg={4} xl={3}>
         <div>
           <div onClick={this.togglePic}>{galleryItem}</div>
         </div>
@@ -59,7 +59,7 @@ class GalleryItem extends Component {
         <Button variant="contained" onClick={this.handleDelete}>
           Delete
         </Button>
-      </div>
+      </Grid>
     );
   }
 }
