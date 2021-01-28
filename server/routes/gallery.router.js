@@ -7,14 +7,24 @@ const galleryItems = require('../modules/gallery.data');
 
 // PUT Route
 router.put('/like/:id', (req, res) => {
-  //console.log(req.params);
+  //update number of likes on a photo
   const galleryId = req.params.id;
-  for (const galleryItem of galleryItems) {
-    if (galleryItem.id == galleryId) {
-      galleryItem.likes += 1;
-    }
-  }
-  res.sendStatus(200);
+  // for (const galleryItem of galleryItems) {
+  //   if (galleryItem.id == galleryId) {
+  //     galleryItem.likes += 1;
+  //   }
+  // }
+  const queryText = `SELECT likes from "gallery" WHERE id = $1;`;
+  const queryArray = [galleryId];
+  pool
+    .query(queryText, queryArray)
+    .then((dbResponse) => {
+      console.log(dbResponse.rows);
+      res.sendStatus(200);
+    })
+    .catch((err) => {
+      console.log('error getting likes in database', err);
+    });
 }); // END PUT Route
 
 // // GET Route

@@ -40,10 +40,8 @@ class App extends Component {
 
   //PUT route to change the amount of likes of a photo in gallery
   changeLikes = (id) => {
-    axios({
-      method: 'PUT',
-      url: `/gallery/like/${id}`,
-    })
+    axios
+      .put(`/api/gallery/like/${id}`)
       .then((response) => {
         //GET the updated like info
         this.getPhotos();
@@ -60,8 +58,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <br />
-        <p className="App-para">MY GALLERY</p>
+
         <GalleryList
           likeCallBack={this.changeLikes}
           list={this.state.galleryList}
