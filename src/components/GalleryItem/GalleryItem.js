@@ -4,7 +4,7 @@ import mapStoreToProps from '../../redux/sagas/mapStoreToProps';
 import './GalleryItem.css';
 
 //MATERIAL-UI imports
-import { Button } from '@material-ui/core';
+import { Button, Typography } from '@material-ui/core';
 
 class GalleryItem extends Component {
   state = {
@@ -36,7 +36,9 @@ class GalleryItem extends Component {
     );
     if (this.state.isClicked) {
       galleryItem = (
-        <p className="description">{this.props.galleryItem.description}</p>
+        <Typography className="description">
+          {this.props.galleryItem.description}
+        </Typography>
       );
     }
     return (

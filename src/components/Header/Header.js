@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 
 //MATERIAL-UI IMPORTS
-import { AppBar } from '@material-ui/core';
+import { AppBar, Typography } from '@material-ui/core';
 
 class Header extends Component {
   render() {
     return (
       <div>
-        <AppBar>
-          <h1 className="App-title">Gallery of my life</h1>
+        <AppBar style={{ position: 'static', left: 0, top: 0 }}>
+          <Typography component="h1" variant="h3" className="App-title">
+            MY GALLERY
+          </Typography>
         </AppBar>
       </div>
     );
