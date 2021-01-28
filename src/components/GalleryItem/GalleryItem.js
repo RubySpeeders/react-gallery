@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import mapStoreToProps from '../../redux/sagas/mapStoreToProps';
 import './GalleryItem.css';
+
+//MATERIAL-UI imports
+import { Button } from '@material-ui/core';
 
 class GalleryItem extends Component {
   state = {
@@ -23,22 +28,30 @@ class GalleryItem extends Component {
   };
 
   render() {
-    //variable for property coming over from GalleryList
-    const prop = this.props.item;
-    let galleryItem = <img src={prop.path} alt={prop.description} />;
+    let galleryItem = (
+      <img
+        src={this.props.galleryItem.path}
+        alt={this.props.galleryItem.description}
+      />
+    );
     if (this.state.isClicked) {
-      galleryItem = <p className="description">{prop.description}</p>;
+      galleryItem = (
+        <p className="description">{this.props.galleryItem.description}</p>
+      );
     }
     return (
-      <div className="container" key={prop.id}>
+      <div className="container">
         <div>
           <div onClick={this.togglePic}>{galleryItem}</div>
         </div>
-        <button onClick={this.handleLikes}>LIKE</button>
-        <span> {prop.likes} likes</span>
+
+        <Button onClick={this.handleLikes} variant="contained">
+          LIKE
+        </Button>
+        <span> {this.props.galleryItem.likes} likes</span>
       </div>
     );
   }
 }
 
-export default GalleryItem;
+export default connect(mapStoreToProps)(GalleryItem);
