@@ -63,4 +63,20 @@ router.post('/', (req, res) => {
     });
 });
 
+//DELETE ROUTE to delete an item from the gallery
+router.delete('/:id', (req, res) => {
+  const itemId = req.params.id;
+  const queryText = `DELETE FROM "gallery" WHERE id =$1;`;
+  const queryArray = [itemId];
+  pool
+    .query(queryText, queryArray)
+    .then((dbResponse) => {
+      res.sendStatus(200);
+    })
+    .catch((err) => {
+      console.log('error deleting item from gallery', err);
+      res.sendStatus(500);
+    });
+});
+
 module.exports = router;
