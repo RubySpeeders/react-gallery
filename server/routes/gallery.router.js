@@ -1,9 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool');
-const galleryItems = require('../modules/gallery.data');
-
-// DO NOT MODIFY THIS FILE FOR BASE MODE
 
 // PUT Route
 router.put('/like/:id', (req, res) => {
@@ -14,13 +11,25 @@ router.put('/like/:id', (req, res) => {
   //     galleryItem.likes += 1;
   //   }
   // }
-  const queryText = `SELECT likes from "gallery" WHERE id = $1;`;
+  const queryText = `SELECT id, likes from "gallery" WHERE id = $1;`;
   const queryArray = [galleryId];
   pool
     .query(queryText, queryArray)
     .then((dbResponse) => {
-      console.log(dbResponse.rows);
-      res.sendStatus(200);
+      const id = dbResponse.rows[0].id;
+      let likes = dbResponse.rows[0].likes;
+      let newLikes = likes + 1;
+      const queryText = `UPDATE "gallery" SET "likes" = $1 WHERE "id" = $2;`;
+      const queryArray = [newLikes, id];
+      pool
+        .query(queryText, queryArray)
+        .then((dbResponse) => {
+          res.sendStatus(200);
+        })
+        .catch((err) => {
+          console.log('error updating likes', err);
+          res.sendStatus(500);
+        });
     })
     .catch((err) => {
       console.log('error getting likes in database', err);
