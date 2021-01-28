@@ -11,11 +11,9 @@ import { Container, Grid } from '@material-ui/core';
 class GalleryList extends Component {
   render() {
     //map through each item in imagesReducer reducer
-    const galleryItem = this.props.store.imagesReducer.imagesReducer.map(
-      (item, index) => {
-        return <GalleryItem key={index} galleryItem={item} />;
-      }
-    );
+    const galleryItem = this.props.store.images.map((item, index) => {
+      return <GalleryItem key={index} galleryItem={item} />;
+    });
 
     return (
       <div>

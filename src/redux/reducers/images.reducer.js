@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 
 // Used to store gallery items returned from the server
 
-const imagesReducer = (state = [], action) => {
+const images = (state = [], action) => {
   switch (action.type) {
     case 'SET_IMAGES':
       return action.payload;
@@ -11,6 +11,4 @@ const imagesReducer = (state = [], action) => {
   }
 };
 
-export default combineReducers({
-  imagesReducer,
-});
+export default images;

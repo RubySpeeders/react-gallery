@@ -16,8 +16,10 @@ class GalleryItem extends Component {
   };
 
   handleDelete = (e) => {
-    // this.props.dispatch({type: 'DELETE_ITEM', payload: this.props.galleryItem.id})
-    console.log(this.props.galleryItem.id);
+    this.props.dispatch({
+      type: 'DELETE_IMAGE',
+      payload: this.props.galleryItem.id,
+    });
   };
 
   togglePic = (event) => {
