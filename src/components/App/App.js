@@ -17,26 +17,8 @@ class App extends Component {
 
   //'on ready' function that loads the gallery on page load
   componentDidMount() {
-    this.getPhotos();
-  }
-
-  //get Route to get all photos from the server
-  getPhotos() {
-    axios
-      .get('/api/gallery')
-      .then((response) => {
-        //GET items in the GALLERY ITEMS reducer
-        this.props.dispatch({
-          type: 'GET_GALLERY_ITEMS',
-          payload: response.data,
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-        this.setState({
-          errMsg: 'Could not get gallery list',
-        });
-      });
+    this.props.dispatch({ type: 'GET_IMAGES' });
+    // this.getPhotos();
   }
 
   //PUT route to change the amount of likes of a photo in gallery

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 //MATERIAL-UI IMPORTS
 import { TextField, Button } from '@material-ui/core';
@@ -46,4 +47,4 @@ class AddGalleryItem extends Component {
   }
 }
 
-export default AddGalleryItem;
+export default connect()(AddGalleryItem);

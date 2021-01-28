@@ -10,15 +10,18 @@ import { Container, Grid } from '@material-ui/core';
 
 class GalleryList extends Component {
   render() {
-    //map through each item in galleryItems reducer
-    const galleryItem = this.props.store.galleryItems.map((item, index) => {
-      return <GalleryItem key={index} galleryItem={item} />;
-    });
+    //map through each item in imagesReducer reducer
+    const galleryItem = this.props.store.imagesReducer.imagesReducer.map(
+      (item, index) => {
+        return <GalleryItem key={index} galleryItem={item} />;
+      }
+    );
 
     return (
       <div>
         <Container>
           <Grid container spacing={3}>
+            {/* <p>whatever</p> */}
             {galleryItem}
           </Grid>
         </Container>
