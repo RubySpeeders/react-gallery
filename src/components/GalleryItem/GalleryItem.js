@@ -12,7 +12,10 @@ class GalleryItem extends Component {
   };
 
   handleLikes = (event) => {
-    this.props.likeCallBack(this.props.item.id);
+    this.props.dispatch({
+      type: 'UPDATE_IMAGE_LIKES',
+      payload: this.props.galleryItem.id,
+    });
   };
 
   handleDelete = (e) => {

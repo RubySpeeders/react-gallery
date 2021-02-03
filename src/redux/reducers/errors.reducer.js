@@ -8,6 +8,8 @@ const errorMessage = (state = '', action) => {
       return 'Oops! Could not get all images! Try again!';
     case 'POST_FAILED':
       return "Oops! That didn't work. Try again!";
+    case 'UPDATE_LIKES_FAILED':
+      return "Oops! That didn't work. Try liking again!";
     default:
       return state;
   }

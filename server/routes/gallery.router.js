@@ -33,7 +33,7 @@ router.put('/like/:id', (req, res) => {
 
 //GET ROUTE to get all items from gallery
 router.get('/', (req, res) => {
-  const queryText = `SELECT * FROM "gallery";`;
+  const queryText = `SELECT * FROM "gallery" ORDER BY id;`;
   pool
     .query(queryText)
     .then((dbResponse) => {
