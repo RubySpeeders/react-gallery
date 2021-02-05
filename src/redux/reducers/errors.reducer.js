@@ -15,6 +15,4 @@ const errorMessage = (state = '', action) => {
   }
 };
 
-export default combineReducers({
-  errorMessage,
-});
+export default errorMessage;

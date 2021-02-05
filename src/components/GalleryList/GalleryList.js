@@ -4,6 +4,7 @@ import mapStoreToProps from '../../redux/sagas/mapStoreToProps';
 
 //CUSTOM FILE IMPORTS
 import GalleryItem from '../GalleryItem/GalleryItem';
+import AddItemModal from '../AddItemModal/AddItemModal';
 
 //MATERIAL-UI IMPORTS
 import { Container, Grid } from '@material-ui/core';
@@ -22,6 +23,7 @@ class GalleryList extends Component {
             {/* <p>whatever</p> */}
             {galleryItem}
           </Grid>
+          <AddItemModal />
         </Container>
       </div>
     );

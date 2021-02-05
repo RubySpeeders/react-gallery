@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/sagas/mapStoreToProps';
-import axios from 'axios';
 
 //CUSTOM FILE IMPORTS
 import './App.css';
@@ -25,7 +24,6 @@ class App extends Component {
       <div className="App">
         <Header />
         <GalleryList list={this.state.galleryList} />
-        <AddGalleryItem />
       </div>
     );
   }

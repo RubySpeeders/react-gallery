@@ -1,5 +1,3 @@
-import { combineReducers } from 'redux';
-
 // Used to store gallery items returned from the server
 
 const images = (state = [], action) => {
