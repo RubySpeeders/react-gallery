@@ -1,19 +1,33 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import mapStoreToProps from '../../redux/sagas/mapStoreToProps';
+
+//CUSTOM FILE IMPORTS
 import GalleryItem from '../GalleryItem/GalleryItem';
+import AddItemModal from '../AddItemModal/AddItemModal';
+
+//MATERIAL-UI IMPORTS
+import { Container, Grid } from '@material-ui/core';
 
 class GalleryList extends Component {
   render() {
-    const listItems = this.props.list.map((item) => {
-      return (
-        <GalleryItem
-          likeCallBack={this.props.likeCallBack}
-          key={item.id}
-          item={item}
-        />
-      );
+    //map through each item in imagesReducer reducer
+    const galleryItem = this.props.store.images.map((item, index) => {
+      return <GalleryItem key={index} galleryItem={item} />;
     });
-    return <div>{listItems}</div>;
+
+    return (
+      <div>
+        <Container>
+          <Grid container spacing={3}>
+            {/* <p>whatever</p> */}
+            {galleryItem}
+          </Grid>
+          <AddItemModal />
+        </Container>
+      </div>
+    );
   }
 }
 
-export default GalleryList;
+export default connect(mapStoreToProps)(GalleryList);

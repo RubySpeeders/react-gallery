@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import mapStoreToProps from '../../redux/sagas/mapStoreToProps';
 import './GalleryItem.css';
+
+//MATERIAL-UI imports
+import { Button, Typography, Grid } from '@material-ui/core';
 
 class GalleryItem extends Component {
   state = {
@@ -7,7 +12,17 @@ class GalleryItem extends Component {
   };
 
   handleLikes = (event) => {
-    this.props.likeCallBack(this.props.item.id);
+    this.props.dispatch({
+      type: 'UPDATE_IMAGE_LIKES',
+      payload: this.props.galleryItem.id,
+    });
+  };
+
+  handleDelete = (e) => {
+    this.props.dispatch({
+      type: 'DELETE_IMAGE',
+      payload: this.props.galleryItem.id,
+    });
   };
 
   togglePic = (event) => {
@@ -23,22 +38,35 @@ class GalleryItem extends Component {
   };
 
   render() {
-    //variable for property coming over from GalleryList
-    const prop = this.props.item;
-    let galleryItem = <img src={prop.path} alt={prop.description} />;
+    let galleryItem = (
+      <img
+        src={this.props.galleryItem.path}
+        alt={this.props.galleryItem.description}
+      />
+    );
     if (this.state.isClicked) {
-      galleryItem = <p className="description">{prop.description}</p>;
+      galleryItem = (
+        <Typography className="description">
+          {this.props.galleryItem.description}
+        </Typography>
+      );
     }
     return (
-      <div className="container" key={prop.id}>
+      <Grid item xs={12} md={6} lg={4} xl={3}>
         <div>
           <div onClick={this.togglePic}>{galleryItem}</div>
         </div>
-        <button onClick={this.handleLikes}>LIKE</button>
-        <span> {prop.likes} likes</span>
-      </div>
+
+        <Button onClick={this.handleLikes} variant="contained">
+          LIKE
+        </Button>
+        <span> {this.props.galleryItem.likes} likes</span>
+        <Button variant="contained" onClick={this.handleDelete}>
+          Delete
+        </Button>
+      </Grid>
     );
   }
 }
 
-export default GalleryItem;
+export default connect(mapStoreToProps)(GalleryItem);
