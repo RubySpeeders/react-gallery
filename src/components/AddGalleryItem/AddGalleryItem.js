@@ -41,6 +41,7 @@ class AddGalleryItem extends Component {
             <Grid container spacing={2}>
               <Grid item xs={12}>
                 <TextField
+                  fullWidth
                   type="text"
                   variant="outlined"
                   placeholder="photo url"
@@ -49,6 +50,7 @@ class AddGalleryItem extends Component {
               </Grid>
               <Grid item xs={12}>
                 <TextField
+                  fullWidth
                   type="text"
                   variant="outlined"
                   multiline
