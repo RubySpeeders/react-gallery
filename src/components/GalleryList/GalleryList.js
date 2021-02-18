@@ -7,7 +7,7 @@ import GalleryItem from '../GalleryItem/GalleryItem';
 import AddItemModal from '../AddItemModal/AddItemModal';
 
 //MATERIAL-UI IMPORTS
-import { Container, Grid } from '@material-ui/core';
+import { Container, Grid, Typography } from '@material-ui/core';
 
 class GalleryList extends Component {
   render() {
@@ -19,11 +19,17 @@ class GalleryList extends Component {
     return (
       <div>
         <Container>
+          <Typography gutterBottom variant="h4">
+            Click on a photo to see the description
+          </Typography>
           <Grid container spacing={3}>
-            {/* <p>whatever</p> */}
             {galleryItem}
           </Grid>
-          <AddItemModal />
+          <Grid container spacing={3}>
+            <Grid item xs={12}>
+              <AddItemModal />
+            </Grid>
+          </Grid>
         </Container>
       </div>
     );

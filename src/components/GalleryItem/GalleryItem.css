@@ -9,8 +9,9 @@ img {
 }
 
 .description {
-  height: 100px;
-  width: 256px;
-  border: solid black 3px;
-  padding: 20px;
+  height: 200px;
+  /* width: 256px; */
+  border: solid black 1px;
+
+  /* padding: 20px; */
 }

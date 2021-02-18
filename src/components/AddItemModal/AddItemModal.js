@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-  Button,
-  TextField,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
-} from '@material-ui/core';
+import { Button, Dialog, DialogTitle } from '@material-ui/core';
 import AddGalleryItem from '../AddGalleryItem/AddGalleryItem';
 
 export default function FormDialog() {

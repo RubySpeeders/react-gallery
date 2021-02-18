@@ -6,11 +6,12 @@ import mapStoreToProps from '../../redux/sagas/mapStoreToProps';
 import './App.css';
 import GalleryList from '../GalleryList/GalleryList';
 import Header from '../Header/Header';
-import AddGalleryItem from '../AddGalleryItem/AddGalleryItem';
+
+//Material-UI imports
+import { CircularProgress } from '@material-ui/core';
 
 class App extends Component {
   state = {
-    galleryList: [],
     errMsg: null,
   };
 
@@ -23,6 +24,11 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
+        {/* {!this.props.images ? (
+          <CircularProgress />
+        ) : (
+          <GalleryList list={this.state.galleryList} />
+        )} */}
         <GalleryList list={this.state.galleryList} />
       </div>
     );
